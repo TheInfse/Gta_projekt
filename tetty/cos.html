@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>test</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+   
+</head>
+<body>
+    <!-- <input class="t" value="0"> -->
+    <p class="t">0</p>
+    <p class="x" id="sraka">SIEEEma</p>
+    <button onclick="cr()">XD</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollToPlugin.min.js"></script>    
+<script>
+
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollToPlugin);
+    // gsap.to(".t", {
+    //     scrollTrigger: {
+    //         trigger: ".t",
+    //         scrub: true,
+    //         pin: true,
+    //         markers: true,
+    //         end: "+=2000",
+    //         onUpdate: self => {
+    //         var no = self.progress.toFixed(2) * 100
+    //         gsap.set(".t", {textContent:no})
+    //     },
+    //     value: [100],
+    //     round: 100,
+    // });
+    var action = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".t",
+    pin:true,
+    scrub:true,
+    start: "top top",
+    end: "+=1000",
+    markers:true,
+    onUpdate: self => {
+      var no = Math.round(self.progress * 430)
+      gsap.set(".t", {textContent:no})
+      //gsap.set(".text", {textContent:no * 100 + '%'})
+    }
+  }
+})
+function cr(){
+    gsap.to(window, {duration: 2, scrollTo:{y:"#sraka", offsetY:50}});
+}
+</script>
+</body>
+
+</html>
